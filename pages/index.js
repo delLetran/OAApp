@@ -14,6 +14,7 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
+  Modal,
   Select,
   Typography,
 } from '@mui/material'
@@ -27,14 +28,7 @@ function Fuels() {
   const [stationsCount, setstationsCount] = useState(20);
   const {data: fuel, isSuccess} = useGetFuelsQuery(stationsCount, {skip})
 
-  useEffect(()=>{
-    setSkip(true)
-    setShowWeather(false)
-  }, [stationsCount])
-
-  useEffect(()=>{
-    skip && setSkip(false)
-  }, [skip])
+  const handleClose = () => setShowWeather(false);
 
   const handleSelect = (event) => {
     setstationsCount(event.target.value);
@@ -49,13 +43,21 @@ function Fuels() {
     return items
   }
 
+  useEffect(()=>{
+    setSkip(true)
+  }, [stationsCount])
+
+  useEffect(()=>{
+    skip && setSkip(false)
+  }, [skip])
+
   useEffect(() => {
     const loc_list = []
     isSuccess && fuel.fuel_stations.map(({latitude, longitude})=>(
       loc_list.push(`${latitude},${longitude}`)
     ))
     setLocations(loc_list)
-  }, [isSuccess, locations]);
+  }, [isSuccess, showWeather]);
 
 
   return (
@@ -85,22 +87,6 @@ function Fuels() {
               </FormControl>
             </div>
             <StationPieGraph data={fuel} />
-            <StationBarGraph data={fuel} />
-            {showWeather && !!locations &&
-              <>
-                <Typography variant='h5'>
-                  Graph represents different weather conditions on each Fuel Station which affects the fuel economy.
-                </Typography >
-                <Typography variant='subtitle2' className={styles.select_wrapper}>
-                  Fuel economy tests show that, in city driving, a conventional 
-                  gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F.
-                  It can drop as much as 24% for short (3- to 4-mile) trips. 
-                </Typography>
-                <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>Visit Source here.</Link>
-                <MultiLocationWeather locations={locations}/>
-              </> 
-            }
-
             <div className={styles.button_wrapper}>
               <Button
                 variant='outlined'
@@ -109,6 +95,29 @@ function Fuels() {
                 {showWeather ? 'Hide' : 'Show Weather on each area'}
               </Button>
             </div>
+            <StationBarGraph data={fuel} />
+            <Modal
+              open={showWeather}
+              onClose={handleClose}
+            >
+              <Box className={styles.modal_container}>
+                {!!locations &&
+                  <>
+                    <Typography variant='h5'>
+                      Graph represents different weather conditions on each Fuel Station which affects the fuel economy.
+                    </Typography >
+                    <Typography variant='subtitle2' className={styles.select_wrapper}>
+                      Fuel economy tests show that, in city driving, a conventional 
+                      gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F.
+                      It can drop as much as 24% for short (3- to 4-mile) trips. 
+                    </Typography>
+                    <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>Visit Source here.</Link>
+                    <MultiLocationWeather locations={locations}/>
+                  </> 
+                }
+              </Box>
+            </Modal>
+
           </div>
           : (
             <div className={styles.loading}>

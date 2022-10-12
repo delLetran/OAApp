@@ -29,6 +29,17 @@
     .loading {
       display: flex;
       justify-content: center;
-    }
+    } 
+
   }
+}
+.modal_container {
+  position: absolute;
+  padding: 1.5rem;
+  max-width: 90vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 5px 3px 20px #333333;
 }

@@ -43,11 +43,11 @@ export const locations = {
 
 export const chartColor = [
   "#ffbb11",
-  "#ecf0f1",
-  "#ba16cc",
-  "#50AF95",
-  "#1cacfa",
   "#2a71d0",
   "#fc8c03",
+  "#ecf0f1",
+  "#ba16cc",
   "#db5e77",
+  "#1cacfa",
+  "#50AF95",
 ]
