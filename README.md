@@ -24,3 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Description
 - Pull data from fuel stations to create the initial graphs (Pie and Bar graphs) for CNGs
 - Use Fuel stations coordinates for weatherApi request Stacked Bar graph
+
+## App Details
+### Graph represents different weather conditions on each Fuel Station which affects the fuel economy.
+Fuel economy tests show that, in city driving, a conventional gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F. It can drop as much as 24% for short (3- to 4-mile) trips.Visit Source here.
