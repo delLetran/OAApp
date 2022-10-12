@@ -29,6 +29,7 @@ function Fuels() {
 
   useEffect(()=>{
     setSkip(true)
+    setShowWeather(false)
   }, [stationsCount])
 
   useEffect(()=>{
@@ -54,7 +55,7 @@ function Fuels() {
       loc_list.push(`${latitude},${longitude}`)
     ))
     setLocations(loc_list)
-  }, [isSuccess]);
+  }, [isSuccess, locations]);
 
 
   return (
@@ -109,10 +110,11 @@ function Fuels() {
               </Button>
             </div>
           </div>
-          :
-          <div className={styles.loading}>
-            <CircularProgress />
-          </div>
+          : (
+            <div className={styles.loading}>
+              <CircularProgress />
+            </div>
+          )
         }
       </main>
     </div>
