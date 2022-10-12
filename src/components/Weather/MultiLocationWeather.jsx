@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { baseUrls, WEATHER_API_KEY } from 'app/api'
-import Link from 'next/link';
 import { WeatherBarGraph } from 'components/Chart'
 
 function  MultiLocationWeather({locations}) {
@@ -27,7 +26,6 @@ function  MultiLocationWeather({locations}) {
       });
     })();
   }, [locations]);
-
 
   return (
     weatherList.length > 0 && <WeatherBarGraph data={weatherList} />

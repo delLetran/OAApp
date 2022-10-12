@@ -6,11 +6,6 @@ import { chartColor } from 'utils/constants';
 
 
 const options = {
-  title:{
-    display:true,
-    text:'Average Rainfall per month',
-    fontSize:20
-  },
   legend:{
     display:true,
     position:'right'
@@ -47,7 +42,7 @@ function StationBarGraph(props) {
       ],
       ready: true
     });
-  }, []);
+  }, [fuel_stations]);
 
 
   return (
@@ -55,7 +50,6 @@ function StationBarGraph(props) {
       {chartData.ready && 
         <Bar options={options} data={chartData} />
       }
-      
     </div>
   )
 }

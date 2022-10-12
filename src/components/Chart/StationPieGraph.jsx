@@ -7,19 +7,25 @@ import { chartColor } from "utils/constants";
 
 
 const options = {
-  title:{
-    display:true,
-    text:'Average Rainfall per month',
-    fontSize:20
-  },
   legend:{
     display:true,
     position:'right'
-  }
+  },
+  plugins: {
+    title: {
+      display: true,
+      text: 'Compressed natural gas (CNG) Pie Ratio',
+    },
+  },
+  responsive: true,
+  interaction: {
+    mode: 'index',  
+    intersect: false, 
+  },
 }
 
 function StationBarGraph(props) {
-  const { fuel_stations, station_counts, station_locator_url} = props.data;
+  const { fuel_stations } = props.data;
   const [chartData, setChartData] = useState({})
 
 
