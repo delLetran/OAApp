@@ -41,9 +41,8 @@ function Fuels() {
 
   const getSelectItems = () => {
     const items = []
-    for (let i=10; i<=40; i+=10) {
+    for (let i=10; i<=50; i+=10) {
       items.push(<MenuItem key={i} value={i}>{i}</MenuItem>)
-
     }
 
     return items
@@ -65,7 +64,7 @@ function Fuels() {
         <meta name="description" content="Fuel Stations Weather Watcher" />
       </Head>
       <main className={styles.main_wrapper}>
-        <Typography variant='h3'>
+        <Typography variant='h4'  className={styles.title}>
           Fuel Stations Weather Watcher (US)
         </Typography>
         {isSuccess ?
@@ -91,14 +90,14 @@ function Fuels() {
                 <Typography variant='h5'>
                   Graph represents different weather conditions on each Fuel Station which affects the fuel economy.
                 </Typography >
-                <Typography variant='p'>
+                <Typography variant='subtitle2' className={styles.select_wrapper}>
                   Fuel economy tests show that, in city driving, a conventional 
                   gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F.
                   It can drop as much as 24% for short (3- to 4-mile) trips. 
                 </Typography>
                 <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>Visit Source here.</Link>
                 <MultiLocationWeather locations={locations}/>
-              </>
+              </> 
             }
 
             <div className={styles.button_wrapper}>
@@ -110,7 +109,10 @@ function Fuels() {
               </Button>
             </div>
           </div>
-          : <CircularProgress />
+          :
+          <div className={styles.loading}>
+            <CircularProgress />
+          </div>
         }
       </main>
     </div>
