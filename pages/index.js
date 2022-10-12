@@ -57,7 +57,7 @@ function Fuels() {
       loc_list.push(`${latitude},${longitude}`)
     ))
     setLocations(loc_list)
-  }, [isSuccess]);
+  }, [isSuccess, showWeather]);
 
 
   return (
@@ -87,6 +87,14 @@ function Fuels() {
               </FormControl>
             </div>
             <StationPieGraph data={fuel} />
+            <div className={styles.button_wrapper}>
+              <Button
+                variant='outlined'
+                onClick={()=>setShowWeather(!showWeather)}
+              >
+                {showWeather ? 'Hide' : 'Show Weather on each area'}
+              </Button>
+            </div>
             <StationBarGraph data={fuel} />
             <Modal
               open={showWeather}
@@ -110,14 +118,6 @@ function Fuels() {
               </Box>
             </Modal>
 
-            <div className={styles.button_wrapper}>
-              <Button
-                variant='outlined'
-                onClick={()=>setShowWeather(!showWeather)}
-              >
-                {showWeather ? 'Hide' : 'Show Weather on each area'}
-              </Button>
-            </div>
           </div>
           : (
             <div className={styles.loading}>
