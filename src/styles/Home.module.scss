@@ -29,6 +29,20 @@
     .loading {
       display: flex;
       justify-content: center;
-    }
+    } 
+
   }
+}
+.modal_container {
+  position: absolute;
+  max-width: 95vw;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // width: 400,
+  // bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  // boxShadow: 24,
+  // p: 4,
 }
