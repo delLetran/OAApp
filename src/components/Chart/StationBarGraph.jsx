@@ -36,7 +36,7 @@ function StationBarGraph(props) {
         {
           label: "NG Pounds per Square Inch",
           data: fuel_stations?.map((station) => station.cng_total_storage),
-          backgroundColor: chartColor[0],
+          backgroundColor: chartColor,
           borderWidth: 1,
         }
       ],
