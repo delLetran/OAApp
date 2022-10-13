@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { baseUrls, WEATHER_API_KEY } from 'app/api'
+import { apiUrls, WEATHER_API_KEY } from 'app/api'
 
 
 export const weatherApi = createApi({
   reducerPath: 'weatherApi',
   baseQuery: fetchBaseQuery({ 
-    baseUrl: baseUrls.weather,
+    baseUrl: apiUrls.weather,
     prepareHeaders(headers) {
       headers.set('Accept', 'Application/Json')
       headers.set('Content-Type', 'Application/Json')

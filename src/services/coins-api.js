@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { baseUrls, X_COINS_API_KEY } from 'app/api'
+import { apiUrls, X_COINS_API_KEY } from 'app/api'
 
 export const coinsApi = createApi({
   reducerPath: 'coinsApi',
   baseQuery: fetchBaseQuery({ 
-    baseUrl: baseUrls.coins,
+    baseUrl: apiUrls.coins,
     prepareHeaders(headers) {
       headers.set('Accept', 'Application/Json')
       headers.set('Content-Type', 'Application/Json')

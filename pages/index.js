@@ -103,20 +103,7 @@ function Fuels() {
             >
               <Box className={styles.modal_container}>
                 {!!locations &&
-                  <>
-                    <Typography variant='h5'>
-                      Graph represents different weather conditions on each Fuel Station which affects the fuel economy.
-                    </Typography >
-                    <Typography variant='subtitle2' className={styles.select_wrapper}>
-                      Fuel economy tests show that, in city driving, a conventional 
-                      gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F.
-                      It can drop as much as 24% for short (3- to 4-mile) trips. 
-                      <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>
-                        Visit Source here.
-                      </Link>
-                    </Typography>
-                    <MultiLocationWeather locations={locations}/>
-                  </> 
+                  <MultiLocationWeather locations={locations}/>
                 }
               </Box>
             </Modal>
