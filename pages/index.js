@@ -26,7 +26,7 @@ function Fuels() {
   const [locations, setLocations] = useState(false);
   const [skip, setSkip] = useState(false);
   const [stationsCount, setstationsCount] = useState(20);
-  const {data: fuel, isSuccess} = useGetFuelsQuery(stationsCount, {skip})
+  const {data: fuel, isSuccess, isFetching} = useGetFuelsQuery(stationsCount, {skip})
 
   const handleClose = () => setShowWeather(false);
 
@@ -70,7 +70,7 @@ function Fuels() {
         <Typography variant='h4'  className={styles.title}>
           Fuel Stations Weather Watcher (US)
         </Typography>
-        {isSuccess ?
+        {isSuccess && !isFetching ?
           <div className={styles.graph_wrapper}>
             <div className={styles.select_wrapper}>
               <FormControl sx={{ width: '10rem' }}>
@@ -90,6 +90,7 @@ function Fuels() {
             <div className={styles.button_wrapper}>
               <Button
                 variant='outlined'
+                disabled={isFetching}
                 onClick={()=>setShowWeather(!showWeather)}
               >
                 {showWeather ? 'Hide' : 'Show Weather on each area'}
@@ -110,8 +111,10 @@ function Fuels() {
                       Fuel economy tests show that, in city driving, a conventional 
                       gasoline car's gas mileage is roughly 15% lower at 20°F than it would be at 77°F.
                       It can drop as much as 24% for short (3- to 4-mile) trips. 
+                      <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>
+                        Visit Source here.
+                      </Link>
                     </Typography>
-                    <Link href='https://fuelandfriction.com/trucking-pro/5-ways-how-the-weather-affects-your-fuel-economy/'>Visit Source here.</Link>
                     <MultiLocationWeather locations={locations}/>
                   </> 
                 }

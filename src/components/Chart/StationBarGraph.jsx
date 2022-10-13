@@ -31,7 +31,7 @@ function StationBarGraph(props) {
   useEffect(() => {
     fuel_stations.length > 0 &&
     setChartData({
-      labels: fuel_stations?.map((location) => location.station_name  ),
+      labels: fuel_stations?.map((location) => location.station_name),
       datasets: [
         {
           label: "NG Pounds per Square Inch",
