@@ -8,6 +8,12 @@
     .title {
       display: flex;
       justify-content: center;
+      font-weight: 700;
+
+      background: linear-gradient(to right, #07227d, #bfe3e9);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .graph_wrapper {

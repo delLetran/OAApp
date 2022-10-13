@@ -57,7 +57,7 @@ function Fuels() {
       loc_list.push(`${latitude},${longitude}`)
     ))
     setLocations(loc_list)
-  }, [isSuccess, showWeather]);
+  }, [isSuccess, fuel, showWeather]);
 
 
   return (
